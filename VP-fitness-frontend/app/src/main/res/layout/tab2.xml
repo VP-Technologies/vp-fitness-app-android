@@ -1,13 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Tab2"
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
         android:gravity="center"
-        android:textSize="36sp"/>
+        android:layout_gravity="center"
+        android:weightSum="1">
 
+        <ImageView
+            android:layout_marginTop="55dp"
+            android:id="@+id/imageView"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:src="@drawable/vp_logo" />
+
+        <TextView
+            android:layout_marginTop="70dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:text="Hi! Welcome to Trainer."
+            android:textColor="@android:color/white" />
+
+        <TextView
+            android:layout_marginTop="80dp"
+            android:layout_width="210dp"
+            android:lineSpacingExtra="2dp"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:textSize="15dp"
+            android:text="To give you the best possible experience, please tell us a little bit about yourself!"
+            android:textColor="@android:color/white" />
+
+    </LinearLayout>
 </LinearLayout>
