@@ -1,10 +1,8 @@
 package com.example.neil.vp_fitness_frontend;
 
+import android.content.Context;
 import android.graphics.Typeface;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -17,9 +15,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
-import android.widget.TextView;
-
-import com.example.neil.vp_fitness_frontend.utils.FontCache;
+import com.avontell.fontutil.FontUtil;
 
 public class OnboardingFragmentActivity extends AppCompatActivity {
 
@@ -32,6 +28,11 @@ public class OnboardingFragmentActivity extends AppCompatActivity {
      * {@link android.support.v4.app.FragmentStatePagerAdapter}.
      */
     private SectionsPagerAdapter mSectionsPagerAdapter;
+
+    /**
+     * Context for this activity
+     */
+    private Context context;
 
     /**
      * The {@link ViewPager} that will host the section contents.
@@ -50,6 +51,8 @@ public class OnboardingFragmentActivity extends AppCompatActivity {
         // Set up the ViewPager with the sections adapter.
         mViewPager = (ViewPager) findViewById(R.id.container);
         mViewPager.setAdapter(mSectionsPagerAdapter);
+
+        context = this;
 
     }
 

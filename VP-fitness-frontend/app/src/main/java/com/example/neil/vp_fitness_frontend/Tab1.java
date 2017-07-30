@@ -8,7 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.neil.vp_fitness_frontend.utils.FontCache;
+import com.avontell.fontutil.FontUtil;
 
 // Fragment class for Tab 1 of onboarding screen
 public class Tab1 extends Fragment {
@@ -17,8 +17,8 @@ public class Tab1 extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         View cont = inflater.inflate(R.layout.tab1, container, false);
-        Typeface fancyFont = FontCache.get("Raleway-Regular.ttf", this.getContext());
-        FontCache.overrideFonts(this.getContext(), cont, fancyFont);
+        Typeface fancyFont = FontUtil.get("Raleway-Regular.ttf", this.getContext());
+        FontUtil.overrideFonts(cont, fancyFont);
         return cont;
     }
 }

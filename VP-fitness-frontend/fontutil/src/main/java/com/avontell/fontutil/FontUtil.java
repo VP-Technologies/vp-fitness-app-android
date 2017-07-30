@@ -1,9 +1,7 @@
-package com.example.neil.vp_fitness_frontend.utils;
+package com.avontell.fontutil;
 
-import android.app.Activity;
 import android.content.Context;
 import android.graphics.Typeface;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
@@ -15,7 +13,7 @@ import java.util.Hashtable;
  * @author Aaron Vontell
  * @version 0.0.1
  */
-public class FontCache {
+public class FontUtil {
 
     /**
      * A cache of fonts that may be used
@@ -44,23 +42,21 @@ public class FontCache {
 
     /**
      * Changes all TextView fonts in view 'v' to the given typeface 't'
-     * @param context The context asking for this change
      * @param v The view (even ViewGroup) asking for the font change
      * @param t The typeface that you would like to use
      */
-    public static void overrideFonts(final Context context, final View v, Typeface t) {
+    public static void overrideFonts(final View v, final Typeface t) {
         try {
             if (v instanceof ViewGroup) {
                 ViewGroup vg = (ViewGroup) v;
                 for (int i = 0; i < vg.getChildCount(); i++) {
                     View child = vg.getChildAt(i);
-                    overrideFonts(context, child, t);
+                    overrideFonts(child, t);
                 }
             } else if (v instanceof TextView) {
                 ((TextView) v).setTypeface(t);
             }
-        } catch (Exception e) {
-        }
+        } catch (Exception e) {}
     }
 
 }
