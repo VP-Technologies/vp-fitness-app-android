@@ -18,7 +18,7 @@
         <LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
+            android:gravity="left"
             android:orientation="vertical">
 
             <TextView
@@ -27,7 +27,7 @@
                 android:layout_marginBottom="40dp"
                 android:text="Create an Account"
                 android:textColor="@android:color/white"
-                android:textSize="32sp"
+                android:textSize="30sp"
                 android:textStyle="bold" />
 
             <com.rengwuxian.materialedittext.MaterialEditText

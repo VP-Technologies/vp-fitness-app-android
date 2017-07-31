@@ -6,4 +6,82 @@
     android:layout_height="match_parent"
     android:background="@drawable/gradient">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="30dp">
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="40dp"
+                android:text="Create an Account"
+                android:textColor="@android:color/white"
+                android:textSize="30sp"
+                android:textStyle="bold" />
+
+            <CheckBox android:id="@+id/medicineball"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Dumbells"
+                android:textColor="@android:color/white"
+                android:padding="10dp"
+                android:onClick="onCheckboxClicked"
+                android:buttonTint="@android:color/white"/>
+
+            <CheckBox android:id="@+id/treadmill"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Medicine Ball"
+                android:textColor="@android:color/white"
+                android:padding="10dp"
+                android:onClick="onCheckboxClicked"
+                android:buttonTint="@android:color/white"/>
+
+            <CheckBox android:id="@+id/pullupbar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Treadmill/track"
+                android:textColor="@android:color/white"
+                android:padding="10dp"
+                android:onClick="onCheckboxClicked"
+                android:buttonTint="@android:color/white"/>
+
+            <CheckBox android:id="@+id/benchpress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Bench Press"
+                android:textColor="@android:color/white"
+                android:padding="10dp"
+                android:onClick="onCheckboxClicked"
+                android:buttonTint="@android:color/white"/>
+
+            <CheckBox android:id="@+id/stairmachine"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Stair Machine"
+                android:textColor="@android:color/white"
+                android:padding="10dp"
+                android:onClick="onCheckboxClicked"
+                android:buttonTint="@android:color/white"/>
+
+            <CheckBox android:id="@+id/elliptical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Elliptical"
+                android:textColor="@android:color/white"
+                android:padding="10dp"
+                android:onClick="onCheckboxClicked"
+                android:buttonTint="@android:color/white"/>
+
+        </LinearLayout>
+    </LinearLayout>
 </LinearLayout>
