@@ -139,14 +139,32 @@ public class OnboardingFragmentActivity extends AppCompatActivity {
                 case 3:
                     Tab4 tab4 = new Tab4();
                     return tab4;
+                case 4:
+                    Tab5 tab5 = new Tab5();
+                    return tab5;
+                case 5:
+                    Tab6 tab6 = new Tab6();
+                    return tab6;
+                case 6:
+                    Tab7 tab7 = new Tab7();
+                    return tab7;
+                case 7:
+                    Tab8 tab8 = new Tab8();
+                    return tab8;
+                case 8:
+                    Tab9 tab9 = new Tab9();
+                    return tab9;
+                case 9:
+                    Tab10 tab10 = new Tab10();
+                    return tab10;
             }
             return null; // returns null if there are no tabs
         }
 
         @Override
         public int getCount() {
-            // Show 4 total pages.
-            return 4;
+            // Show 5 total pages.
+            return 10;
         }
 
         @Override
