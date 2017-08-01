@@ -4,40 +4,23 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/gradient"
-    android:gravity="center"
-    android:padding="64dp">
+    android:padding="30dp">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="40dp"
-        android:text="Create an Account"
+        android:text="Set Your Goal"
         android:textColor="@android:color/white"
-        android:textSize="32sp"
-        android:textStyle="bold" />
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:paddingTop="16dp"/>
 
     <LinearLayout
-        android:id="@+id/gender_linear_layout"
+        android:id="@+id/goals_linear_layout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
-        android:orientation="horizontal">
+        android:layout_height="wrap_content">
 
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_marginTop="36dp">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="How old are you?"
-            android:textColor="@android:color/white"
-            android:textSize="20sp" />
 
 
     </LinearLayout>
