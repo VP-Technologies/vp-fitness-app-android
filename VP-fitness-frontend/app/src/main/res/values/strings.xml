@@ -6,4 +6,8 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="burn_fat_description">Fatburning workouts to help lose weight and tone muscle</string>
+    <string name="build_muscle_description">Strength training to increase muscle mass</string>
+    <string name="improve_endurance_description">Cardio workouts to help you stay active for longer</string>
 </resources>
