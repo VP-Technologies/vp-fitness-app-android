@@ -22,19 +22,22 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="72dp"
-            android:text="Hi! Welcome to Trainer."
+            android:text="@string/welcome_info_header"
             android:textColor="@android:color/white"
-            android:textSize="20sp" />
+            android:textSize="20sp"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"/>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="72dp"
             android:lineSpacingExtra="3dp"
-            android:text="To give you the best possible experience, please tell us a little bit about yourself!"
+            android:text="@string/welcome_info_description"
             android:textAlignment="center"
             android:textColor="@android:color/white"
             android:textSize="15sp" />
 
     </LinearLayout>
+
 </RelativeLayout>

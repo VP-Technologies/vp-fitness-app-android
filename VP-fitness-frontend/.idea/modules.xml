@@ -5,8 +5,6 @@
       <module fileurl="file://$PROJECT_DIR$/VP-fitness-frontend.iml" filepath="$PROJECT_DIR$/VP-fitness-frontend.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/fontutil/fontutil.iml" filepath="$PROJECT_DIR$/fontutil/fontutil.iml" />
-      <module fileurl="file://$PROJECT_DIR$/fontutil/fontutil.iml" filepath="$PROJECT_DIR$/fontutil/fontutil.iml" />
-      <module fileurl="file://$PROJECT_DIR$/fontutil/fontutil.iml" filepath="$PROJECT_DIR$/fontutil/fontutil.iml" />
     </modules>
   </component>
 </project>
