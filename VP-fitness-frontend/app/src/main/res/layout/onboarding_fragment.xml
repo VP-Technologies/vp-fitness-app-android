@@ -14,4 +14,20 @@
         android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_marginTop="8dp"
+        android:gravity="center_horizontal"
+        android:id="@+id/indicator_cont"
+        android:layout_below="@+id/indicator_progress_container_text"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+    </LinearLayout>
+
+
+
+
 </android.support.design.widget.CoordinatorLayout>

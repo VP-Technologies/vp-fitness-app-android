@@ -14,8 +14,10 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 
 import com.avontell.fontutil.FontUtil;
+import com.matthewtamlin.sliding_intro_screen_library.indicators.DotIndicator;
 
 public class OnboardingFragmentActivity extends AppCompatActivity {
 
@@ -38,6 +40,7 @@ public class OnboardingFragmentActivity extends AppCompatActivity {
      * The {@link ViewPager} that will host the section contents.
      */
     private ViewPager mViewPager;
+    protected int pageId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,9 +54,29 @@ public class OnboardingFragmentActivity extends AppCompatActivity {
         // Set up the ViewPager with the sections adapter.
         mViewPager = (ViewPager) findViewById(R.id.container);
         mViewPager.setAdapter(mSectionsPagerAdapter);
-
         context = this;
+        final DotIndicator indicator = new DotIndicator(context);
+        indicator.setNumberOfItems(10);
+        indicator.setVisibility(true);
+        indicator.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,
+                LinearLayout.LayoutParams.WRAP_CONTENT));
+        mViewPager.addView(indicator);
+        mViewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
 
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+                indicator.setSelectedItem(position, true);
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
+            }
+        });
     }
 
 
@@ -70,7 +93,7 @@ public class OnboardingFragmentActivity extends AppCompatActivity {
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
-
+        pageId = id;
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             return true;
@@ -122,6 +145,7 @@ public class OnboardingFragmentActivity extends AppCompatActivity {
             super(fm);
         }
 
+
         @Override
         public Fragment getItem(int position) { // getItem is called to instantiate the fragment for the given page.
 
@@ -166,6 +190,7 @@ public class OnboardingFragmentActivity extends AppCompatActivity {
             // Show 5 total pages.
             return 10;
         }
+
 
         @Override
         public CharSequence getPageTitle(int position) {
