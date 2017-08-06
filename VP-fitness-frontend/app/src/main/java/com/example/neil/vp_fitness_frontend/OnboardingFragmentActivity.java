@@ -9,6 +9,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -19,6 +20,8 @@ import android.widget.LinearLayout;
 import com.avontell.fontutil.FontUtil;
 import com.avontell.pagerindicatorbinder.IndicatorBinder;
 import com.matthewtamlin.sliding_intro_screen_library.indicators.DotIndicator;
+
+import java.util.HashMap;
 
 public class OnboardingFragmentActivity extends AppCompatActivity {
 
@@ -38,6 +41,11 @@ public class OnboardingFragmentActivity extends AppCompatActivity {
     private Context context;
 
     /**
+     * Mapping for all onboarding screens
+     */
+    HashMap<String, Fragment> fragments = new HashMap<>();
+
+    /**
      * The {@link ViewPager} that will host the section contents.
      */
     private ViewPager mViewPager;
@@ -55,6 +63,7 @@ public class OnboardingFragmentActivity extends AppCompatActivity {
         // Set up the ViewPager with the sections adapter.
         mViewPager = (ViewPager) findViewById(R.id.container);
         mViewPager.setAdapter(mSectionsPagerAdapter);
+        mViewPager.setOffscreenPageLimit(10);
         LinearLayout indicatorContainer = (LinearLayout) findViewById(R.id.indicator_cont);
         int selectedImage = R.drawable.indicator_selected;
         int unselectedImage = R.drawable.indicator_unselected;
@@ -138,6 +147,16 @@ public class OnboardingFragmentActivity extends AppCompatActivity {
     }
 
     /**
+     * Method to call when finished with the onboarding process.
+     */
+    public void finish(View view) {
+
+        OnboardingFragment tab = (OnboardingFragment) fragments.get("TAB3");
+        Log.e("RESULTS", tab.getData().toString());
+
+    }
+
+    /**
      * A {@link FragmentPagerAdapter} that returns a fragment corresponding to
      * one of the sections/tabs/pages.
      */
@@ -161,6 +180,7 @@ public class OnboardingFragmentActivity extends AppCompatActivity {
                     return tab2;
                 case 2:
                     Tab3 tab3 = new Tab3();
+                    fragments.put("TAB3", tab3);
                     return tab3;
                 case 3:
                     Tab4 tab4 = new Tab4();
