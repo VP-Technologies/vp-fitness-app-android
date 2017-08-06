@@ -20,6 +20,7 @@
         android:layout_height="30dp"
         android:layout_marginTop="8dp"
         android:gravity="center_horizontal"
+        android:layout_gravity="bottom"
         android:id="@+id/indicator_cont"
         android:layout_below="@+id/indicator_progress_container_text"
         android:layout_alignParentLeft="true"

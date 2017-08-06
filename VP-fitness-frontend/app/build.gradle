@@ -31,6 +31,7 @@ dependencies {
     compile 'com.rengwuxian.materialedittext:library:2.1.4'
     compile 'com.android.support:support-v4:25.3.1'
     compile 'com.matthew-tamlin:sliding-intro-screen:3.2.0'
+    compile 'com.github.vontell:IndicatorBinder:v0.1.3-alpha'
     testCompile 'junit:junit:4.12'
 
 }

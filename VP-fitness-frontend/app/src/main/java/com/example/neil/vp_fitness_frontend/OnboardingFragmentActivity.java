@@ -17,6 +17,7 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
 import com.avontell.fontutil.FontUtil;
+import com.avontell.pagerindicatorbinder.IndicatorBinder;
 import com.matthewtamlin.sliding_intro_screen_library.indicators.DotIndicator;
 
 public class OnboardingFragmentActivity extends AppCompatActivity {
@@ -54,13 +55,15 @@ public class OnboardingFragmentActivity extends AppCompatActivity {
         // Set up the ViewPager with the sections adapter.
         mViewPager = (ViewPager) findViewById(R.id.container);
         mViewPager.setAdapter(mSectionsPagerAdapter);
-        context = this;
-        final DotIndicator indicator = new DotIndicator(context);
-        indicator.setNumberOfItems(10);
-        indicator.setVisibility(true);
-        indicator.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,
-                LinearLayout.LayoutParams.WRAP_CONTENT));
-        mViewPager.addView(indicator);
+        LinearLayout indicatorContainer = (LinearLayout) findViewById(R.id.indicator_cont);
+        int selectedImage = R.drawable.indicator_selected;
+        int unselectedImage = R.drawable.indicator_unselected;
+        final IndicatorBinder sample = new IndicatorBinder().bind(this,
+                mViewPager,
+                indicatorContainer,
+                selectedImage,
+                unselectedImage);
+        sample.setProgressStyle(false);
         mViewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
@@ -69,7 +72,6 @@ public class OnboardingFragmentActivity extends AppCompatActivity {
 
             @Override
             public void onPageSelected(int position) {
-                indicator.setSelectedItem(position, true);
             }
 
             @Override
