@@ -23,7 +23,7 @@ import com.matthewtamlin.sliding_intro_screen_library.indicators.DotIndicator;
 
 import java.util.HashMap;
 
-public class OnboardingFragmentActivity extends AppCompatActivity {
+public class OnboardingActivity extends AppCompatActivity {
 
     /**
      * The {@link android.support.v4.view.PagerAdapter} that will provide
@@ -209,7 +209,7 @@ public class OnboardingFragmentActivity extends AppCompatActivity {
 
         @Override
         public int getCount() {
-            // Show 5 total pages.
+            // Show 10 total pages.
             return 10;
         }
 

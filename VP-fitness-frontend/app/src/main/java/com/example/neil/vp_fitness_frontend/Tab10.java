@@ -1,19 +1,24 @@
 package com.example.neil.vp_fitness_frontend;
 
-import android.content.Context;
 import android.graphics.Typeface;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.LinearLayout;
 
 import com.avontell.fontutil.FontUtil;
+import com.rengwuxian.materialedittext.MaterialEditText;
+
+import java.util.HashMap;
 
 
-public class Tab10 extends Fragment {
+public class Tab10 extends OnboardingFragment {
+
+    private MaterialEditText usernameEditText;
+    private LinearLayout confirmLinearLayout;
 
     @Nullable
     @Override
@@ -22,5 +27,31 @@ public class Tab10 extends Fragment {
         Typeface fancyFont = FontUtil.get("Raleway-Regular.ttf", this.getContext());
         FontUtil.overrideFonts(cont, fancyFont);
         return cont;
+    }
+
+    @Override
+    public void bindViews(View cont) {
+
+        this.usernameEditText = (MaterialEditText) cont.findViewById(R.id.username_edit_text);
+        this.confirmLinearLayout = (LinearLayout) cont.findViewById(R.id.confirm_linear_layout);
+        confirmLinearLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
+    }
+
+    @Override
+    public boolean inputReady() {
+        return false;
+    }
+
+    @Override
+    public HashMap<String, String> getData() {
+        HashMap<String, String> results = new HashMap<>();
+        results.put("username", usernameEditText.getText().toString());
+        return null;
     }
 }

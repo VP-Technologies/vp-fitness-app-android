@@ -45,7 +45,6 @@ public class Tab3 extends OnboardingFragment {
         this.emailView = (MaterialEditText) cont.findViewById(R.id.email_edit_text);
         this.passwordView = (MaterialEditText) cont.findViewById(R.id.password_edit_text);
         this.passwordConfirmView = (MaterialEditText) cont.findViewById(R.id.password_confirm_edit_text);
-
     }
 
     /**
@@ -67,7 +66,6 @@ public class Tab3 extends OnboardingFragment {
 
     /**
      * Returns the data which can be uploaded during the onboarding process
-     *
      * @return the data which can be uploaded during the onboarding process
      */
     @Override

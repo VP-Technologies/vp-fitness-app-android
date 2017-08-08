@@ -29,7 +29,7 @@
                 android:textStyle="bold" />
 
             <CheckBox
-                android:id="@+id/medicineball"
+                android:id="@+id/dumbells_checkbox"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Dumbells"
@@ -40,7 +40,7 @@
                 android:textSize="20sp"/>
 
             <CheckBox
-                android:id="@+id/treadmill"
+                android:id="@+id/medicine_ball_checkbox"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Medicine Ball"
@@ -51,7 +51,7 @@
                 android:textSize="20sp"/>
 
             <CheckBox
-                android:id="@+id/pullupbar"
+                android:id="@+id/treadmill_checkbox"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Treadmill/track"
@@ -62,7 +62,7 @@
                 android:textSize="20sp"/>
 
             <CheckBox
-                android:id="@+id/benchpress"
+                android:id="@+id/bench_press_checkbox"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Bench Press"
@@ -73,7 +73,7 @@
                 android:textSize="20sp"/>
 
             <CheckBox
-                android:id="@+id/stairmachine"
+                android:id="@+id/stair_machine_checkbox"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Stair Machine"
@@ -84,7 +84,7 @@
                 android:textSize="20sp"/>
 
             <CheckBox
-                android:id="@+id/elliptical"
+                android:id="@+id/elliptical_checkbox"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Elliptical"
