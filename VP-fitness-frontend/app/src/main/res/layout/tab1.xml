@@ -19,7 +19,6 @@
             android:layout_width="110dp"
             android:layout_height="110dp"
             android:src="@drawable/vp_logo" />
-
         <TextView
             android:layout_marginTop="10dp"
             android:textSize="15sp"
