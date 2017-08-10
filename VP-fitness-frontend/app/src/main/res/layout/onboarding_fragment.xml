@@ -29,6 +29,7 @@
             android:src="@drawable/ic_arrow_left"
             android:background="@android:color/transparent"
             android:layout_alignParentLeft="true"
+            android:onClick="previousPage"
             android:layout_centerVertical="true"/>
 
         <LinearLayout
@@ -46,6 +47,7 @@
             android:layout_height="wrap_content"
             android:background="@android:color/transparent"
             android:src="@drawable/ic_arrow_right"
+            android:onClick="nextPage"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"/>
     </RelativeLayout>

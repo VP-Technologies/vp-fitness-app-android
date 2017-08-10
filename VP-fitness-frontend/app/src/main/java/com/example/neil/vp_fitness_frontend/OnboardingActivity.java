@@ -73,6 +73,7 @@ public class OnboardingActivity extends AppCompatActivity {
                 selectedImage,
                 unselectedImage);
         sample.setProgressStyle(false);
+
         mViewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
@@ -88,8 +89,32 @@ public class OnboardingActivity extends AppCompatActivity {
 
             }
         });
+
     }
 
+    public void nextPage(View view) {
+        int currentPage = mViewPager.getCurrentItem();
+        int totalPages = mViewPager.getAdapter().getCount();
+
+        int nextPage = currentPage+1;
+        if (nextPage >= totalPages) {
+            return;
+        }
+
+        mViewPager.setCurrentItem(nextPage, true);
+    }
+
+    public void previousPage(View view) {
+        int currentPage = mViewPager.getCurrentItem();
+        int totalPages = mViewPager.getAdapter().getCount();
+
+        int previousPage = currentPage-1;
+        if (previousPage < 0) {
+            return;
+        }
+
+        mViewPager.setCurrentItem(previousPage, true);
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
