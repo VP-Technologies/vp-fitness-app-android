@@ -3,9 +3,14 @@ package com.example.neil.vp_fitness_frontend;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.Toast;
 
 import com.avontell.fontutil.FontUtil;
 import com.rengwuxian.materialedittext.MaterialEditText;
@@ -20,16 +25,22 @@ public class Tab3 extends OnboardingFragment {
     private MaterialEditText emailView;
     private MaterialEditText passwordView;
     private MaterialEditText passwordConfirmView;
+    private ImageButton rightArrow;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         View cont = inflater.inflate(R.layout.tab3, container, false);
+        View onboarding = inflater.inflate(R.layout.onboarding_fragment, container, false);
         Typeface fancyFont = FontUtil.get("Raleway-Regular.ttf", this.getContext());
         FontUtil.overrideFonts(cont, fancyFont);
-
+        rightArrow = (ImageButton) onboarding.findViewById(R.id.forward_arrow_button);
+        rightArrow.setEnabled(false);
         bindViews(cont);
-
+        nameView.addTextChangedListener(textWatcher);
+        emailView.addTextChangedListener(textWatcher);
+        passwordView.addTextChangedListener(textWatcher);
+        passwordConfirmView.addTextChangedListener(textWatcher);
         return cont;
     }
 
@@ -78,4 +89,31 @@ public class Tab3 extends OnboardingFragment {
         return results;
 
     }
+
+    TextWatcher textWatcher = new TextWatcher() {
+
+        @Override
+        public void onTextChanged(CharSequence s, int start, int before, int count) {
+        if (nameView.getText().toString().equals("")) {
+                rightArrow.setEnabled(false);
+                System.out.println(rightArrow.isEnabled());
+            } else {
+                rightArrow.setEnabled(true);
+            }
+            System.out.println(rightArrow.isEnabled());
+
+        }
+
+        @Override
+        public void beforeTextChanged(CharSequence s, int start, int count,
+                                      int after) {
+
+        }
+
+        @Override
+        public void afterTextChanged(Editable s) {
+        }
+    };
+
+
 }

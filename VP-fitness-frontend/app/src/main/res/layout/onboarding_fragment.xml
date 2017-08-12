@@ -29,6 +29,7 @@
             android:src="@drawable/ic_arrow_left"
             android:background="@android:color/transparent"
             android:layout_alignParentLeft="true"
+            android:enabled="false"
             android:onClick="previousPage"
             android:layout_centerVertical="true"/>
 

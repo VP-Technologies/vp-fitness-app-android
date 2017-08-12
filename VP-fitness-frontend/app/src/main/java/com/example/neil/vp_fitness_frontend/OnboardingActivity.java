@@ -2,6 +2,7 @@ package com.example.neil.vp_fitness_frontend;
 
 import android.content.Context;
 import android.graphics.Typeface;
+import android.media.Image;
 import android.support.v7.app.AppCompatActivity;
 
 import android.support.v4.app.Fragment;
@@ -15,6 +16,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
 
 import com.avontell.fontutil.FontUtil;
@@ -49,6 +51,7 @@ public class OnboardingActivity extends AppCompatActivity {
      * The {@link ViewPager} that will host the section contents.
      */
     private ViewPager mViewPager;
+    private ImageButton rightArrow;
     protected int pageId;
 
     @Override
@@ -90,6 +93,7 @@ public class OnboardingActivity extends AppCompatActivity {
             }
         });
 
+
     }
 
     public void nextPage(View view) {
@@ -105,15 +109,15 @@ public class OnboardingActivity extends AppCompatActivity {
     }
 
     public void previousPage(View view) {
-        int currentPage = mViewPager.getCurrentItem();
-        int totalPages = mViewPager.getAdapter().getCount();
+            int currentPage = mViewPager.getCurrentItem();
+            int totalPages = mViewPager.getAdapter().getCount();
 
-        int previousPage = currentPage-1;
-        if (previousPage < 0) {
-            return;
-        }
+            int previousPage = currentPage - 1;
+            if (previousPage < 0) {
+                return;
+            }
 
-        mViewPager.setCurrentItem(previousPage, true);
+            mViewPager.setCurrentItem(previousPage, true);
     }
 
     @Override
@@ -251,5 +255,7 @@ public class OnboardingActivity extends AppCompatActivity {
             }
             return null;
         }
+
+
     }
 }
