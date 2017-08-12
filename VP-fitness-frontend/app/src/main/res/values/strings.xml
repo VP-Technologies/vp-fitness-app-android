@@ -14,6 +14,14 @@
     <string name="build_muscle_description">Strength training to increase muscle mass</string>
     <string name="improve_endurance_description">Cardio workouts to help you stay active for longer</string>
 
+    <string name="personal_title">About You</string>
+    <string name="year_slider">Year Born</string>
+    <string name="weight_slider">Weight</string>
+    <string name="height_slider">Height</string>
+    <string name="weight_units">lbs</string>
+    <string name="height_first_unit">ft</string>
+    <string name="height_second_unit">in</string>
+
     <string name="beginner_description">Little to no prior workout experience. (You currently exercise 0 to 5 times a month)</string>
     <string name="intermediate_description">Moderate prior workout experience. (You currently work out 6 to 12 times a month)</string>
     <string name="expert_description">Significant workout experience. (You currently exercise 13+ times a month</string>
