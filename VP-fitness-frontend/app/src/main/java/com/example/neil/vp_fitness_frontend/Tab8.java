@@ -10,10 +10,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
+import android.widget.ImageButton;
 
 import com.avontell.fontutil.FontUtil;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 
 public class Tab8 extends OnboardingFragment {
@@ -24,8 +26,6 @@ public class Tab8 extends OnboardingFragment {
     private CheckBox benchPressCheckBox;
     private CheckBox stairMachineCheckBox;
     private CheckBox ellipticalCheckBox;
-
-    private ArrayList<Integer> equipmentArrayList = new ArrayList<>();
 
     @Nullable
     @Override
@@ -62,6 +62,19 @@ public class Tab8 extends OnboardingFragment {
 
     @Override
     public HashMap<String, String> getData() {
-        return null;
+        HashMap<String, String> results = new HashMap<>();
+
+        String result = "{";
+
+        CheckBox[] boxes = new CheckBox[] {this.dumbellsCheckBox, this.medicineBallCheckBox, this.treadmillCheckBox,
+                this.benchPressCheckBox, this.stairMachineCheckBox, this.ellipticalCheckBox};
+
+        for (int i = 0; i <= boxes.length; i++) {
+            CheckBox box = boxes[i];
+            result += box.isChecked() ? i + "," : "";
+        }
+        result = result.endsWith(",") ? result.substring(0,result.lastIndexOf(",")) : result;
+        results.put("equipment", result + "}");
+        return results;
     }
 }

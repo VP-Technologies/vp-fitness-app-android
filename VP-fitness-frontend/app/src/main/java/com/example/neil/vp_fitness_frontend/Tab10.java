@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
 
 import com.avontell.fontutil.FontUtil;
@@ -18,7 +19,7 @@ import java.util.HashMap;
 public class Tab10 extends OnboardingFragment {
 
     private MaterialEditText usernameEditText;
-    private LinearLayout confirmLinearLayout;
+    private ImageButton forwardArrowButton;
 
     @Nullable
     @Override
@@ -33,8 +34,8 @@ public class Tab10 extends OnboardingFragment {
     public void bindViews(View cont) {
 
         this.usernameEditText = (MaterialEditText) cont.findViewById(R.id.username_edit_text);
-        this.confirmLinearLayout = (LinearLayout) cont.findViewById(R.id.confirm_linear_layout);
-        confirmLinearLayout.setOnClickListener(new View.OnClickListener() {
+        this.forwardArrowButton = (ImageButton) cont.findViewById(R.id.forward_arrow_button);
+        forwardArrowButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
