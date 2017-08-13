@@ -95,9 +95,11 @@ public class Tab3 extends OnboardingFragment {
         @Override
         public void onTextChanged(CharSequence s, int start, int before, int count) {
         if (nameView.getText().toString().equals("")) {
+                rightArrow.setClickable(false);
                 rightArrow.setEnabled(false);
-                System.out.println(rightArrow.isEnabled());
+                System.out.println(rightArrow.isClickable());
             } else {
+                rightArrow.setClickable(true);
                 rightArrow.setEnabled(true);
             }
             System.out.println(rightArrow.isEnabled());
