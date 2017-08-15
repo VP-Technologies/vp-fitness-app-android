@@ -1,8 +1,10 @@
 package com.example.neil.vp_fitness_frontend;
 
 import android.content.Context;
-import android.graphics.Typeface;
-import android.media.Image;
+import android.net.Uri;
+import android.os.AsyncTask;
+import android.support.v4.app.FragmentStatePagerAdapter;
+import android.support.v4.view.PagerAdapter;
 import android.support.v7.app.AppCompatActivity;
 
 import android.support.v4.app.Fragment;
@@ -10,7 +12,6 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -19,32 +20,26 @@ import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 
-import com.avontell.fontutil.FontUtil;
 import com.avontell.pagerindicatorbinder.IndicatorBinder;
-import com.matthewtamlin.sliding_intro_screen_library.indicators.DotIndicator;
+import com.example.neil.vp_fitness_frontend.utils.API;
+import com.google.android.gms.appindexing.Action;
+import com.google.android.gms.appindexing.AppIndex;
+import com.google.android.gms.appindexing.Thing;
+import com.google.android.gms.common.api.GoogleApiClient;
 
+import org.json.JSONException;
 import org.json.JSONObject;
-
-import java.io.IOError;
-import java.io.IOException;
 import java.util.HashMap;
-import java.util.Iterator;
-
-import okhttp3.MediaType;
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import okhttp3.RequestBody;
-import okhttp3.Response;
 
 public class OnboardingActivity extends AppCompatActivity {
 
     /**
-     * The {@link android.support.v4.view.PagerAdapter} that will provide
+     * The {@link PagerAdapter} that will provide
      * fragments for each of the sections. We use a
      * {@link FragmentPagerAdapter} derivative, which will keep every
      * loaded fragment in memory. If this becomes too memory intensive, it
      * may be best to switch to a
-     * {@link android.support.v4.app.FragmentStatePagerAdapter}.
+     * {@link FragmentStatePagerAdapter}.
      */
     private SectionsPagerAdapter mSectionsPagerAdapter;
 
@@ -64,6 +59,11 @@ public class OnboardingActivity extends AppCompatActivity {
     private ViewPager mViewPager;
     private ImageButton rightArrow;
     protected int pageId;
+    /**
+     * ATTENTION: This was auto-generated to implement the App Indexing API.
+     * See https://g.co/AppIndexing/AndroidStudio for more information.
+     */
+    private GoogleApiClient client;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -90,22 +90,28 @@ public class OnboardingActivity extends AppCompatActivity {
 
         mViewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
-            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {}
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+            }
 
             @Override
-            public void onPageSelected(int position) {}
+            public void onPageSelected(int position) {
+            }
 
             @Override
-            public void onPageScrollStateChanged(int state) {}
+            public void onPageScrollStateChanged(int state) {
+            }
         });
 
+        // ATTENTION: This was auto-generated to implement the App Indexing API.
+        // See https://g.co/AppIndexing/AndroidStudio for more information.
+        client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
     }
 
     public void nextPage(View view) {
         int currentPage = mViewPager.getCurrentItem();
         int totalPages = mViewPager.getAdapter().getCount();
 
-        int nextPage = currentPage+1;
+        int nextPage = currentPage + 1;
         if (nextPage >= totalPages) {
             return;
         }
@@ -114,15 +120,15 @@ public class OnboardingActivity extends AppCompatActivity {
     }
 
     public void previousPage(View view) {
-            int currentPage = mViewPager.getCurrentItem();
-            int totalPages = mViewPager.getAdapter().getCount();
+        int currentPage = mViewPager.getCurrentItem();
+        int totalPages = mViewPager.getAdapter().getCount();
 
-            int previousPage = currentPage - 1;
-            if (previousPage < 0) {
-                return;
-            }
+        int previousPage = currentPage - 1;
+        if (previousPage < 0) {
+            return;
+        }
 
-            mViewPager.setCurrentItem(previousPage, true);
+        mViewPager.setCurrentItem(previousPage, true);
     }
 
     @Override
@@ -145,6 +151,42 @@ public class OnboardingActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    /**
+     * ATTENTION: This was auto-generated to implement the App Indexing API.
+     * See https://g.co/AppIndexing/AndroidStudio for more information.
+     */
+    public Action getIndexApiAction() {
+        Thing object = new Thing.Builder()
+                .setName("Onboarding Page") // TODO: Define a title for the content shown.
+                // TODO: Make sure this auto-generated URL is correct.
+                .setUrl(Uri.parse("http://[ENTER-YOUR-URL-HERE]"))
+                .build();
+        return new Action.Builder(Action.TYPE_VIEW)
+                .setObject(object)
+                .setActionStatus(Action.STATUS_TYPE_COMPLETED)
+                .build();
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+
+        // ATTENTION: This was auto-generated to implement the App Indexing API.
+        // See https://g.co/AppIndexing/AndroidStudio for more information.
+        client.connect();
+        AppIndex.AppIndexApi.start(client, getIndexApiAction());
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+
+        // ATTENTION: This was auto-generated to implement the App Indexing API.
+        // See https://g.co/AppIndexing/AndroidStudio for more information.
+        AppIndex.AppIndexApi.end(client, getIndexApiAction());
+        client.disconnect();
     }
 
     /**
@@ -185,55 +227,75 @@ public class OnboardingActivity extends AppCompatActivity {
      * Converts all onboarding data into JSONObject and sends it via HTTP call to database
      */
     public void finish(View view) {
-        // JSON Object to be sent to database representing all onboarding data
-        JSONObject jsonObject = new JSONObject();
 
-        // For every fragment within the fragments HashMap...
-        for (OnboardingFragment value : fragments.values()) {
-            // Create HashMap for data from that fragment
-            HashMap<String, String> data = new HashMap<>();
+        // JSON Objects to be POSTed to the server
+        JSONObject accountInformation = new JSONObject();
+        JSONObject userInformation = new JSONObject();
+
+        for (OnboardingFragment fragment : fragments.values()) {
+
+            // For each fragment, grab the data and put it into the appropriate JSON
+            HashMap<String, String> data = fragment.getData();
             for (String key : data.keySet()) {
-                // Try catch block to handle possible JSON Exception
                 try {
-                    // If the key is either age, weight, or height, it needs to be converted from
-                    // a string to an integer before being put it in the JSONObject
-                    if (key.equals("age") || key.equals("weight") || key.equals("height")) {
-                        jsonObject.put(key, Integer.parseInt(data.get(key)));
-                    } else {
-                        jsonObject.put(key, data.get(key));
+                    String value = data.get(key);
+                    switch (key) {
+                        case "username":
+                        case "email":
+                        case "name":
+                        case "password":
+                            accountInformation.put(key, value);
+                            break;
+                        case "age":
+                        case "height":
+                        case "weight":
+                        case "goal_weight":
+                        case "goal":
+                        case "difficulty":
+                            userInformation.put(key, Integer.parseInt(value));
+                            break;
+                        case "equipment":
+                            userInformation.put(key, value);
+                        default:
+                            throw new RuntimeException("An invalid key was encountered during the onboarding process.");
                     }
-                } catch (Exception e) {
-                    e.printStackTrace();
+
+                } catch (JSONException e) {
+                    throw new RuntimeException("An error occurred during the onboarding process:\n\t" + e.toString());
                 }
             }
 
-            try {
-                OnboardingActivity onboardingActivity = new OnboardingActivity();
-                onboardingActivity.post("https://vptech-fitness.herokuapp.com/api/onboarding", jsonObject.toString());
-                Log.i("Onboarding Info JSON", jsonObject.toString());
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+            // Now we want to post that information. Start our handy AsyncTask!
+            new OnboardAsyncTask().execute(accountInformation, userInformation);
 
         }
     }
 
-    public static final MediaType JSON = MediaType.parse("application/json; charset=utf-8");
+    private class OnboardAsyncTask extends AsyncTask<JSONObject, Void, Void> {
 
-    OkHttpClient okHttpClient = new OkHttpClient();
+        @Override
+        protected Void doInBackground(JSONObject... objs) {
 
-    String post(String url, String json) throws IOException {
-        RequestBody body = RequestBody.create(JSON, json);
-        Request request = new Request.Builder()
-                .url(url)
-                .post(body)
-                .build();
+            try {
+                // First create the account
+                API.postAccountCreation(objs[0]);
 
-        Response response = okHttpClient.newCall(request).execute();
-        return response.body().string();
+                // Now authenticated so we can create the user info. The resulting
+                // access token should be saved! postAuthentication will automatically
+                // save the access token for us; ain't that nifty? And probs dangerous...
+                API.postAuthentication(objs[0].getString("username"), objs[0].getString("password"));
+
+                // Then login automatically, to create user information
+                API.postUserInfo(objs[1]);
+            }
+            catch (Exception e) {
+                throw new RuntimeException("There was an error during account creation:\n\t" + e.toString());
+            }
+
+            return null;
+
+        }
     }
-
-
 
     /**
      * A {@link FragmentPagerAdapter} that returns a fragment corresponding to
@@ -310,7 +372,6 @@ public class OnboardingActivity extends AppCompatActivity {
             }
             return null;
         }
-
 
     }
 }
