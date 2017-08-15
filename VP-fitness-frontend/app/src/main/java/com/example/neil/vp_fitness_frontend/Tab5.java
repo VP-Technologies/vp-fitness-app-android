@@ -39,7 +39,6 @@ public class Tab5 extends OnboardingFragment {
 
     /**
      * Method to trigger the binding of views
-     *
      * @param cont The container to find the views within
      */
     @Override
@@ -89,13 +88,16 @@ public class Tab5 extends OnboardingFragment {
 
     /**
      * Returns the data which can be uploaded during the onboarding process
-     *
      * @return the data which can be uploaded during the onboarding process
      */
     @Override
     public HashMap<String, String> getData() {
 
         // Use the getValue method to get info from sliders
+        HashMap<String, String> results = new HashMap<>();
+        results.put("age", Float.toString(yearSlider.getValue()));
+        results.put("weight", Float.toString(weightSlider.getValue()));
+        results.put("height", Float.toString(heightSlider.getValue()));
 
         return null;
     }

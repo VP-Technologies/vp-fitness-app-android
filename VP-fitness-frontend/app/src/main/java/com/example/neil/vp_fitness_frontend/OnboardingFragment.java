@@ -28,6 +28,4 @@ public abstract class OnboardingFragment extends Fragment {
      */
     public abstract HashMap<String, String> getData();
 
-
-
 }
