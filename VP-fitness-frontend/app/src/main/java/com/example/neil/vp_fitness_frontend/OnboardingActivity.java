@@ -23,7 +23,18 @@ import com.avontell.fontutil.FontUtil;
 import com.avontell.pagerindicatorbinder.IndicatorBinder;
 import com.matthewtamlin.sliding_intro_screen_library.indicators.DotIndicator;
 
+import org.json.JSONObject;
+
+import java.io.IOError;
+import java.io.IOException;
 import java.util.HashMap;
+import java.util.Iterator;
+
+import okhttp3.MediaType;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.RequestBody;
+import okhttp3.Response;
 
 public class OnboardingActivity extends AppCompatActivity {
 
@@ -45,7 +56,7 @@ public class OnboardingActivity extends AppCompatActivity {
     /**
      * Mapping for all onboarding screens
      */
-    HashMap<String, Fragment> fragments = new HashMap<>();
+    HashMap<String, OnboardingFragment> fragments = new HashMap<>();
 
     /**
      * The {@link ViewPager} that will host the section contents.
@@ -79,20 +90,14 @@ public class OnboardingActivity extends AppCompatActivity {
 
         mViewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
-            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-
-            }
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {}
 
             @Override
-            public void onPageSelected(int position) {
-            }
+            public void onPageSelected(int position) {}
 
             @Override
-            public void onPageScrollStateChanged(int state) {
-
-            }
+            public void onPageScrollStateChanged(int state) {}
         });
-
 
     }
 
@@ -177,13 +182,58 @@ public class OnboardingActivity extends AppCompatActivity {
 
     /**
      * Method to call when finished with the onboarding process.
+     * Converts all onboarding data into JSONObject and sends it via HTTP call to database
      */
     public void finish(View view) {
+        // JSON Object to be sent to database representing all onboarding data
+        JSONObject jsonObject = new JSONObject();
 
-        OnboardingFragment tab = (OnboardingFragment) fragments.get("TAB3");
-        Log.e("RESULTS", tab.getData().toString());
+        // For every fragment within the fragments HashMap...
+        for (OnboardingFragment value : fragments.values()) {
+            // Create HashMap for data from that fragment
+            HashMap<String, String> data = new HashMap<>();
+            for (String key : data.keySet()) {
+                // Try catch block to handle possible JSON Exception
+                try {
+                    // If the key is either age, weight, or height, it needs to be converted from
+                    // a string to an integer before being put it in the JSONObject
+                    if (key.equals("age") || key.equals("weight") || key.equals("height")) {
+                        jsonObject.put(key, Integer.parseInt(data.get(key)));
+                    } else {
+                        jsonObject.put(key, data.get(key));
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
 
+            try {
+                OnboardingActivity onboardingActivity = new OnboardingActivity();
+                onboardingActivity.post("https://vptech-fitness.herokuapp.com/api/onboarding", jsonObject.toString());
+                Log.i("Onboarding Info JSON", jsonObject.toString());
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+        }
     }
+
+    public static final MediaType JSON = MediaType.parse("application/json; charset=utf-8");
+
+    OkHttpClient okHttpClient = new OkHttpClient();
+
+    String post(String url, String json) throws IOException {
+        RequestBody body = RequestBody.create(JSON, json);
+        Request request = new Request.Builder()
+                .url(url)
+                .post(body)
+                .build();
+
+        Response response = okHttpClient.newCall(request).execute();
+        return response.body().string();
+    }
+
+
 
     /**
      * A {@link FragmentPagerAdapter} that returns a fragment corresponding to
@@ -213,24 +263,29 @@ public class OnboardingActivity extends AppCompatActivity {
                     return tab3;
                 case 3:
                     Tab4 tab4 = new Tab4();
+                    fragments.put("TAB4", tab4);
                     return tab4;
                 case 4:
                     Tab5 tab5 = new Tab5();
+                    fragments.put("TAB5", tab5);
                     return tab5;
                 case 5:
                     Tab6 tab6 = new Tab6();
+                    fragments.put("TAB6", tab6);
                     return tab6;
                 case 6:
                     Tab7 tab7 = new Tab7();
                     return tab7;
                 case 7:
                     Tab8 tab8 = new Tab8();
+                    fragments.put("TAB8", tab8);
                     return tab8;
                 case 8:
                     Tab9 tab9 = new Tab9();
                     return tab9;
                 case 9:
                     Tab10 tab10 = new Tab10();
+                    fragments.put("TAB10", tab10);
                     return tab10;
             }
             return null; // returns null if there are no tabs

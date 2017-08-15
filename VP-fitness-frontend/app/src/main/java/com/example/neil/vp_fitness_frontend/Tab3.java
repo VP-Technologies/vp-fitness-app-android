@@ -103,19 +103,12 @@ public class Tab3 extends OnboardingFragment {
                 rightArrow.setEnabled(true);
             }
             System.out.println(rightArrow.isEnabled());
-
         }
 
         @Override
-        public void beforeTextChanged(CharSequence s, int start, int count,
-                                      int after) {
-
-        }
+        public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
 
         @Override
-        public void afterTextChanged(Editable s) {
-        }
+        public void afterTextChanged(Editable s) {}
     };
-
-
 }
