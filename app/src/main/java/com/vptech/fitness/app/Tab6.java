@@ -7,12 +7,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
-
 import com.avontell.fontutil.FontUtil;
-
 import java.util.HashMap;
 
-
+/**
+ * A tab for selecting your desired difficulty
+ * @author Tej Patel
+ * @author Neil Patel
+ * @author Aaron Vontell
+ */
 public class Tab6 extends OnboardingFragment {
 
     /** Views to use throughout this fragment */
@@ -21,8 +24,8 @@ public class Tab6 extends OnboardingFragment {
     private LinearLayout expertLinearLayout;
 
     private int difficulty;
-    private String opaque = "0.25";
-    private String solid = "1";
+    private final float OPAQUE = 0.25f;
+    private final float SOLID = 1f;
 
     @Nullable
     @Override
@@ -49,27 +52,27 @@ public class Tab6 extends OnboardingFragment {
             @Override
             public void onClick(View v) {
                 difficulty = 1;
-                beginnerLinearLayout.setAlpha(Float.valueOf(String.valueOf(solid)));
-                intermediateLinearLayout.setAlpha(Float.valueOf(String.valueOf(opaque)));
-                expertLinearLayout.setAlpha(Float.valueOf(String.valueOf(opaque)));
+                beginnerLinearLayout.setAlpha(SOLID);
+                intermediateLinearLayout.setAlpha(OPAQUE);
+                expertLinearLayout.setAlpha(OPAQUE);
             }
         });
         intermediateLinearLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 difficulty = 2;
-                beginnerLinearLayout.setAlpha(Float.valueOf(String.valueOf(opaque)));
-                intermediateLinearLayout.setAlpha(Float.valueOf(String.valueOf(solid)));
-                expertLinearLayout.setAlpha(Float.valueOf(String.valueOf(opaque)));
+                beginnerLinearLayout.setAlpha(OPAQUE);
+                intermediateLinearLayout.setAlpha(SOLID);
+                expertLinearLayout.setAlpha(OPAQUE);
             }
         });
         expertLinearLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 difficulty = 3;
-                beginnerLinearLayout.setAlpha(Float.valueOf(String.valueOf(opaque)));
-                intermediateLinearLayout.setAlpha(Float.valueOf(String.valueOf(opaque)));
-                expertLinearLayout.setAlpha(Float.valueOf(String.valueOf(solid)));
+                beginnerLinearLayout.setAlpha(OPAQUE);
+                intermediateLinearLayout.setAlpha(OPAQUE);
+                expertLinearLayout.setAlpha(SOLID);
             }
         });
 

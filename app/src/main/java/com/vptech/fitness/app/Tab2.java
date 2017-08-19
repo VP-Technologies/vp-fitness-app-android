@@ -6,11 +6,15 @@ import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
 import com.avontell.fontutil.FontUtil;
-
 import java.util.HashMap;
 
+/**
+ * An introduction tab to the fitness application
+ * @author Tej Patel
+ * @author Neil Patel
+ * @author Aaron Vontell
+ */
 public class Tab2 extends OnboardingFragment {
 
     @Nullable

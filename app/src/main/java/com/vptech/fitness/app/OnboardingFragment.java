@@ -6,7 +6,7 @@ import android.view.View;
 import java.util.HashMap;
 
 /**
- * A superclass for onboarding fragment to implement from
+ * A superclass for an onboarding fragment to implement from
  * @author Aaron Vontell
  */
 public abstract class OnboardingFragment extends Fragment {

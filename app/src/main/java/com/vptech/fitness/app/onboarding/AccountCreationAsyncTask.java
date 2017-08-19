@@ -3,13 +3,11 @@ package com.vptech.fitness.app.onboarding;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.support.annotation.NonNull;
-
 import com.afollestad.materialdialogs.DialogAction;
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.vptech.fitness.app.R;
 import com.vptech.fitness.app.utils.API;
 import com.vptech.fitness.app.utils.ViewHelper;
-
 import org.json.JSONObject;
 
 /**
@@ -20,6 +18,10 @@ public class AccountCreationAsyncTask extends AsyncTask<JSONObject, Void, Materi
 
     private Context context;
 
+    /**
+     * Creates an asynchronous task for posting information from the onboarding flow.
+     * @param context The calling activity or context
+     */
     public AccountCreationAsyncTask(Context context) {
         super();
         this.context = context;
@@ -41,7 +43,7 @@ public class AccountCreationAsyncTask extends AsyncTask<JSONObject, Void, Materi
                         context.getString(R.string.onboard_error_pos), null, null, null);
             }
 
-            // First create the account
+            // Then create the account
             JSONObject accountResult = API.postAccountCreation(context, objs[0]);
 
             // If there is an error from account creation, we should tell them
@@ -107,11 +109,12 @@ public class AccountCreationAsyncTask extends AsyncTask<JSONObject, Void, Materi
         if (builder != null) {
             builder.build().show();
         } else {
-            // Here we start an intent! For now I will show a dialog
+            // TODO: Here we start an intent! For now I will show a dialog. We
+            // will also want to calling finish on the calling activity.
             ViewHelper.createDialog(
                     context, "Literally a boss",
-                    "Ummmmm so yeah it worked?",
-                    "999", null, null, null).build().show();
+                    "Um so yeah it worked?",
+                    "OK", null, null, null).build().show();
         }
 
     }

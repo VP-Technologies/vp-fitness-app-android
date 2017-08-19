@@ -6,12 +6,15 @@ import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
 import com.avontell.fontutil.FontUtil;
-
 import java.util.HashMap;
 
-
+/**
+ * A slide telling the user that they are almost done...
+ * @author Tej Patel
+ * @author Neil Patel
+ * @author Aaron Vontell
+ */
 public class Tab9 extends OnboardingFragment {
 
     @Nullable

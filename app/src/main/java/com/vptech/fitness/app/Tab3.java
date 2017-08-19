@@ -6,12 +6,16 @@ import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
 import com.avontell.fontutil.FontUtil;
 import com.rengwuxian.materialedittext.MaterialEditText;
-
 import java.util.HashMap;
 
+/**
+ * A tab during onboarding for account creation
+ * @author Tej Patel
+ * @author Neil Patel
+ * @author Aaron Vontell
+ */
 public class Tab3 extends OnboardingFragment {
 
     /** Views to use throughout this fragment */

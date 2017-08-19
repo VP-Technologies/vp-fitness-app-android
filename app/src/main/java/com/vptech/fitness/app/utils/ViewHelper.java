@@ -2,7 +2,6 @@ package com.vptech.fitness.app.utils;
 
 import android.content.Context;
 import android.support.annotation.Nullable;
-
 import com.afollestad.materialdialogs.MaterialDialog;
 
 /**

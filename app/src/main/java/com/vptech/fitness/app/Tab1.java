@@ -6,12 +6,15 @@ import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
 import com.avontell.fontutil.FontUtil;
-
 import java.util.HashMap;
 
-// Fragment class for Tab 1 of onboarding screen
+/**
+ * A tab for introducing VP technologies
+ * @author Tej Patel
+ * @author Neil Patel
+ * @author Aaron Vontell
+ */
 public class Tab1 extends OnboardingFragment {
 
     @Nullable

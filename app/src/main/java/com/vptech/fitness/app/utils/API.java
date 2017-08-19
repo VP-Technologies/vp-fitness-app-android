@@ -2,12 +2,9 @@ package com.vptech.fitness.app.utils;
 
 import android.content.Context;
 import android.util.Log;
-
 import org.json.JSONException;
 import org.json.JSONObject;
-
 import java.io.IOException;
-
 import okhttp3.MediaType;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
@@ -33,6 +30,7 @@ public class API {
     private static final MediaType JSON = MediaType.parse("application/json; charset=utf-8");
     private static final MediaType WWWE = MediaType.parse("application/x-www-form-urlencoded; charset=utf-8");
 
+    /** A singleton HTTP client helper */
     private static OkHttpClient client = null;
 
     /**
@@ -55,7 +53,7 @@ public class API {
      * @param beared True if this should include a client bearer
      * @param authed True if this should include an authenticated header
      * @return The response from the server, as a string
-     * @throws IOException
+     * @throws IOException An exception which may occur during the post response
      */
     private static String post(Context context, String url, String data, MediaType type, boolean beared, boolean authed) throws IOException {
         RequestBody body = RequestBody.create(type, data);
@@ -76,40 +74,67 @@ public class API {
         return response.body().string();
     }
 
-
     // PRAGMA - Actual API-specific methods ------------------------------------
 
+    /**
+     * Makes an HTTP POST request with a username to determine if a user already
+     * exists on the server.
+     * @param context the context making the request
+     * @param username the username being checked against
+     * @return a JSONObject with a response as defined by the server API
+     * @throws IOException An exception that can occur during the POST process
+     * @throws JSONException An exception that can occur during the POST process
+     */
     public static JSONObject postValidateUsername(Context context, String username) throws IOException, JSONException {
-
-        // Post the account information, and return the results
         JSONObject validationObject = new JSONObject();
         validationObject.put("new_username", username);
         String response = post(context, ROOT_URL + CHECK_USERNAME, validationObject.toString(), JSON, false, false);
         return new JSONObject(response);
     }
 
+    /**
+     * Makes an HTTP POST request with user data for account creation
+     * @param context the context making the request
+     * @param data the data being inserted as a user into the database
+     * @return a JSONObject with a response as defined by the server API
+     * @throws IOException An exception that can occur during the POST process
+     * @throws JSONException An exception that can occur during the POST process
+     */
     public static JSONObject postAccountCreation(Context context, JSONObject data) throws IOException, JSONException {
-
-        // Post the account information, and return the results
         String response = post(context, ROOT_URL + ACCOUNT_CREATION, data.toString(), JSON, false, false);
         return new JSONObject(response);
     }
 
+    /**
+     * Makes an HTTP POST request with user info for account modification
+     * @param context the context making the request
+     * @param data the data being inserted for a user into the database
+     * @return a JSONObject with a response as defined by the server API
+     * @throws IOException An exception that can occur during the POST process
+     * @throws JSONException An exception that can occur during the POST process
+     */
     public static JSONObject postUserInfo(Context context, JSONObject data) throws IOException, JSONException {
         String response = post(context, ROOT_URL + INFO_CREATION, data.toString(), JSON, false, true);
-        Log.e("USER", response);
         return new JSONObject(response);
     }
 
+    /**
+     * Makes an HTTP POST request with a username and password for logging in.
+     * The received access token is then saved for later use.
+     * @param context the context making the request
+     * @param username the desired username to log into
+     * @param password the password for this user
+     * @return a JSONObject with a response as defined by the server API
+     * @throws IOException An exception that can occur during the POST process
+     * @throws JSONException An exception that can occur during the POST process
+     */
     public static JSONObject postAuthentication(Context context, String username, String password) throws IOException, JSONException {
-        StringBuilder request = new StringBuilder();
-        request.append("username=");
-        request.append(username).append("&");
-        request.append("password=");
-        request.append(password).append("&");
-        request.append("grant_type=");
-        request.append(Authentication.GRANT_TYPE);
-        String data = request.toString();
+        String data = "username=" +
+                username + "&" +
+                "password=" +
+                password + "&" +
+                "grant_type=" +
+                Authentication.GRANT_TYPE;
         String response = post(context, ROOT_URL + AUTHORIZATION, data, WWWE, true, false);
 
         JSONObject jsonResponse = new JSONObject(response);

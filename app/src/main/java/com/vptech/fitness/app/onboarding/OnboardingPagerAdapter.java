@@ -1,13 +1,8 @@
 package com.vptech.fitness.app.onboarding;
 
-/**
- * A FragmentPager
- */
-
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
-
 import com.vptech.fitness.app.OnboardingFragment;
 import com.vptech.fitness.app.Tab1;
 import com.vptech.fitness.app.Tab10;
@@ -19,12 +14,11 @@ import com.vptech.fitness.app.Tab6;
 import com.vptech.fitness.app.Tab7;
 import com.vptech.fitness.app.Tab8;
 import com.vptech.fitness.app.Tab9;
-
 import java.util.HashMap;
 
 /**
  * A {@link FragmentPagerAdapter} that returns a fragment corresponding to
- * one of the sections/tabs/pages.
+ * one of the sections/tabs/pages in the onboarding process
  */
 public class OnboardingPagerAdapter extends FragmentPagerAdapter {
 
@@ -38,6 +32,10 @@ public class OnboardingPagerAdapter extends FragmentPagerAdapter {
         fragments = new HashMap<>();
     }
 
+    /**
+     * Returns a mapping of tab indices to fragments.
+     * @return a mapping of tab indices to fragments.
+     */
     public HashMap<Integer, OnboardingFragment> getFragments() {
         return fragments;
     }
@@ -45,7 +43,6 @@ public class OnboardingPagerAdapter extends FragmentPagerAdapter {
     @Override
     public Fragment getItem(int position) { // getItem is called to instantiate the fragment for the given page.
 
-        // Switch statement for tabs in onboarding fragment
         switch (position) {
             case 0:
                 Tab1 tab1 = new Tab1();
@@ -93,7 +90,6 @@ public class OnboardingPagerAdapter extends FragmentPagerAdapter {
 
     @Override
     public int getCount() {
-        // Show 10 total pages.
         return 10;
     }
 

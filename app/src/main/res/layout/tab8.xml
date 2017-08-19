@@ -100,6 +100,7 @@
                 android:layout_marginTop="32dp">
 
                 <TextView
+                    android:id="@+id/select_all_equipment"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="I have a gym membership (Select all)"

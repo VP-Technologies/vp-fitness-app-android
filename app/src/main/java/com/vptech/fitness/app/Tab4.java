@@ -7,15 +7,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
-
 import com.avontell.fontutil.FontUtil;
-
 import java.util.HashMap;
 
 /**
- * Created by tejpatel on 7/26/17.
+ * A tab for selecting your overall goal of using the application
+ * @author Tej Patel
+ * @author Neil Patel
+ * @author Aaron Vontell
  */
-
 public class Tab4 extends OnboardingFragment {
 
     /** Views to use throughout this fragment */
@@ -24,8 +24,8 @@ public class Tab4 extends OnboardingFragment {
     private LinearLayout improveEnduranceLinearLayout;
 
     private int goal;
-    private String opaque = "0.25";
-    private String solid = "1";
+    private final float OPAQUE = 0.25f;
+    private final float SOLID = 1f;
 
     @Nullable
     @Override
@@ -52,27 +52,27 @@ public class Tab4 extends OnboardingFragment {
             @Override
             public void onClick(View v) {
                 goal = 1;
-                burnFatLinearLayout.setAlpha(Float.valueOf(String.valueOf(solid)));
-                buildMuscleLinearLayout.setAlpha(Float.valueOf(String.valueOf(opaque)));
-                improveEnduranceLinearLayout.setAlpha(Float.valueOf(String.valueOf(opaque)));
+                burnFatLinearLayout.setAlpha(SOLID);
+                buildMuscleLinearLayout.setAlpha(OPAQUE);
+                improveEnduranceLinearLayout.setAlpha(OPAQUE);
             }
         });
         buildMuscleLinearLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 goal = 2;
-                burnFatLinearLayout.setAlpha(Float.valueOf(String.valueOf(opaque)));
-                buildMuscleLinearLayout.setAlpha(Float.valueOf(String.valueOf(solid)));
-                improveEnduranceLinearLayout.setAlpha(Float.valueOf(String.valueOf(opaque)));
+                burnFatLinearLayout.setAlpha(OPAQUE);
+                buildMuscleLinearLayout.setAlpha(SOLID);
+                improveEnduranceLinearLayout.setAlpha(OPAQUE);
             }
         });
         improveEnduranceLinearLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 goal = 3;
-                burnFatLinearLayout.setAlpha(Float.valueOf(String.valueOf(opaque)));
-                buildMuscleLinearLayout.setAlpha(Float.valueOf(String.valueOf(opaque)));
-                improveEnduranceLinearLayout.setAlpha(Float.valueOf(String.valueOf(solid)));
+                burnFatLinearLayout.setAlpha(OPAQUE);
+                buildMuscleLinearLayout.setAlpha(OPAQUE);
+                improveEnduranceLinearLayout.setAlpha(SOLID);
             }
         });
 

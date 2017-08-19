@@ -6,11 +6,15 @@ import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
 import com.avontell.fontutil.FontUtil;
-
 import java.util.HashMap;
 
+/**
+ * A tab for introducing the equipment onboarding page
+ * @author Tej Patel
+ * @author Neil Patel
+ * @author Aaron Vontell
+ */
 public class Tab7 extends OnboardingFragment {
 
     @Nullable

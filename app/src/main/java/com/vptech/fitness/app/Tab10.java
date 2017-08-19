@@ -6,13 +6,16 @@ import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
 import com.avontell.fontutil.FontUtil;
 import com.rengwuxian.materialedittext.MaterialEditText;
-
 import java.util.HashMap;
 
-
+/**
+ * The final tab in onboarding, with username and character selection
+ * @author Tej Patel
+ * @author Neil Patel
+ * @author Aaron Vontell
+ */
 public class Tab10 extends OnboardingFragment {
 
     private MaterialEditText usernameEditText;
@@ -36,7 +39,6 @@ public class Tab10 extends OnboardingFragment {
     public String ready() {
 
         //TODO: Check for whitespace
-
         if (usernameEditText.getText().toString().trim().length() < 3) {
             return getString(R.string.onboard_error_username);
         } else {

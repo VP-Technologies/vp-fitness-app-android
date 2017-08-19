@@ -7,19 +7,22 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-
 import com.avontell.fontutil.FontUtil;
 import com.vptechnologies.vpfancyslider.FancySlider;
-
 import java.util.HashMap;
 
+/**
+ * A tab for selecting your year born, weight, and height
+ * @author Tej Patel
+ * @author Neil Patel
+ * @author Aaron Vontell
+ */
 public class Tab5 extends OnboardingFragment {
 
     /** Views to use throughout this fragment */
     private FancySlider yearSlider;
     private FancySlider weightSlider;
     private FancySlider heightSlider;
-
     private TextView yearTextView;
     private TextView weightTextView;
     private TextView heightOneTextView;
@@ -31,9 +34,7 @@ public class Tab5 extends OnboardingFragment {
         View cont = inflater.inflate(R.layout.tab5, container, false);
         Typeface fancyFont = FontUtil.get("Raleway-Regular.ttf", this.getContext());
         FontUtil.overrideFonts(cont, fancyFont);
-
         bindViews(cont);
-
         return cont;
     }
 
