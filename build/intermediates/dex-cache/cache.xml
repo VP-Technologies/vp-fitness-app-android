@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="false"
+        jar="/Users/Vontell/Documents/vptech/vp-fitness-app-android/fontutil/build/intermediates/bundles/default/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.1"
+        sha1="e2c2cdf5c069ab49f62a9320fc6b7bf513a7686b">
+        <dex dex="/Users/Vontell/Documents/vptech/vp-fitness-app-android/app/build/intermediates/pre-dexed/debug/classes_c0d66781ed7ab75314000fab3546b7cb6a62d69b.jar" />
+    </item>
+
+</items>
