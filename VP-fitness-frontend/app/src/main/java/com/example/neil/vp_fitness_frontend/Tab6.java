@@ -33,9 +33,7 @@ public class Tab6 extends OnboardingFragment {
         View cont = inflater.inflate(R.layout.tab6, container, false);
         Typeface fancyFont = FontUtil.get("Raleway-Regular.ttf", this.getContext());
         FontUtil.overrideFonts(cont, fancyFont);
-
         bindViews(cont);
-
         return cont;
     }
 
@@ -46,9 +44,9 @@ public class Tab6 extends OnboardingFragment {
     @Override
     public void bindViews(View cont) {
 
-        this.beginnerLinearLayout = (LinearLayout) cont.findViewById(R.id.beginner_linear_layout);
-        this.intermediateLinearLayout = (LinearLayout) cont.findViewById(R.id.intermediate_linear_layout);
-        this.expertLinearLayout = (LinearLayout) cont.findViewById(R.id.expert_linear_layout);
+        this.beginnerLinearLayout = cont.findViewById(R.id.beginner_linear_layout);
+        this.intermediateLinearLayout = cont.findViewById(R.id.intermediate_linear_layout);
+        this.expertLinearLayout = cont.findViewById(R.id.expert_linear_layout);
 
         beginnerLinearLayout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -81,8 +79,14 @@ public class Tab6 extends OnboardingFragment {
     }
 
     @Override
-    public boolean inputReady() {
-        return false;
+    public String ready() {
+
+        if (difficulty > 0) {
+            return null;
+        } else {
+            return getString(R.string.onboard_error_diff);
+        }
+
     }
 
     /**

@@ -18,9 +18,10 @@ public abstract class OnboardingFragment extends Fragment {
     public abstract void bindViews(View cont);
 
     /**
-     * Returns true if the inputs within this fragment are valid
+     * Returns a string to display an error if the information has not been
+     * filled out correctly. Otherwise, returns null.
      */
-    public abstract boolean inputReady();
+    public abstract String ready();
 
     /**
      * Returns the data which can be uploaded during the onboarding process

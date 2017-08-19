@@ -44,14 +44,14 @@ public class Tab5 extends OnboardingFragment {
     @Override
     public void bindViews(View cont) {
 
-        yearSlider = (FancySlider) cont.findViewById(R.id.yearBornSlider);
-        weightSlider = (FancySlider) cont.findViewById(R.id.weightSlider);
-        heightSlider = (FancySlider) cont.findViewById(R.id.heightSlider);
+        yearSlider = cont.findViewById(R.id.yearBornSlider);
+        weightSlider = cont.findViewById(R.id.weightSlider);
+        heightSlider = cont.findViewById(R.id.heightSlider);
 
-        yearTextView = (TextView) cont.findViewById(R.id.yearTextView);
-        weightTextView = (TextView) cont.findViewById(R.id.weightTextView);
-        heightOneTextView = (TextView) cont.findViewById(R.id.heightOneTextView);
-        heightTwoTextView = (TextView) cont.findViewById(R.id.heightTwoTextView);
+        yearTextView = cont.findViewById(R.id.yearTextView);
+        weightTextView = cont.findViewById(R.id.weightTextView);
+        heightOneTextView = cont.findViewById(R.id.heightOneTextView);
+        heightTwoTextView = cont.findViewById(R.id.heightTwoTextView);
 
         // Attach the listeners to the sliders
         yearSlider.setOnValueChangedListener(new FancySlider.OnValueChangedListener() {
@@ -82,8 +82,8 @@ public class Tab5 extends OnboardingFragment {
      * Returns true if the inputs within this fragment are valid
      */
     @Override
-    public boolean inputReady() {
-        return false;
+    public String ready() {
+        return null;
     }
 
     /**
@@ -92,13 +92,11 @@ public class Tab5 extends OnboardingFragment {
      */
     @Override
     public HashMap<String, String> getData() {
-
         // Use the getValue method to get info from sliders
         HashMap<String, String> results = new HashMap<>();
-        results.put("age", Float.toString(yearSlider.getValue()));
-        results.put("weight", Float.toString(weightSlider.getValue()));
-        results.put("height", Float.toString(heightSlider.getValue()));
-
-        return null;
+        results.put("age", Integer.toString((int) yearSlider.getValue()));
+        results.put("weight", Integer.toString((int) weightSlider.getValue()));
+        results.put("height", Integer.toString((int) heightSlider.getValue()));
+        return results;
     }
 }

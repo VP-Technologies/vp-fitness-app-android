@@ -19,28 +19,19 @@ import java.util.HashMap;
 
 public class Tab3 extends OnboardingFragment {
 
-
     /** Views to use throughout this fragment */
     private MaterialEditText nameView;
     private MaterialEditText emailView;
     private MaterialEditText passwordView;
     private MaterialEditText passwordConfirmView;
-    private ImageButton rightArrow;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         View cont = inflater.inflate(R.layout.tab3, container, false);
-        View onboarding = inflater.inflate(R.layout.onboarding_fragment, container, false);
         Typeface fancyFont = FontUtil.get("Raleway-Regular.ttf", this.getContext());
         FontUtil.overrideFonts(cont, fancyFont);
-        rightArrow = (ImageButton) onboarding.findViewById(R.id.forward_arrow_button);
-        rightArrow.setEnabled(false);
         bindViews(cont);
-        nameView.addTextChangedListener(textWatcher);
-        emailView.addTextChangedListener(textWatcher);
-        passwordView.addTextChangedListener(textWatcher);
-        passwordConfirmView.addTextChangedListener(textWatcher);
         return cont;
     }
 
@@ -51,20 +42,18 @@ public class Tab3 extends OnboardingFragment {
      */
     @Override
     public void bindViews(View cont) {
-
-        this.nameView = (MaterialEditText) cont.findViewById(R.id.full_name_edit_text);
-        this.emailView = (MaterialEditText) cont.findViewById(R.id.email_edit_text);
-        this.passwordView = (MaterialEditText) cont.findViewById(R.id.password_edit_text);
-        this.passwordConfirmView = (MaterialEditText) cont.findViewById(R.id.password_confirm_edit_text);
+        this.nameView = cont.findViewById(R.id.full_name_edit_text);
+        this.emailView = cont.findViewById(R.id.email_edit_text);
+        this.passwordView = cont.findViewById(R.id.password_edit_text);
+        this.passwordConfirmView = cont.findViewById(R.id.password_confirm_edit_text);
     }
 
     /**
      * Returns true if the inputs within this fragment are valid
      */
     @Override
-    public boolean inputReady() {
+    public String ready() {
 
-        // TODO: Add error messages
         boolean nameGood = this.nameView.getEditableText().toString().length() > 2;
         // TODO: USE AN EMAIL REGEX
         boolean emailGood = this.emailView.getEditableText().toString().length() > 2;
@@ -72,7 +61,21 @@ public class Tab3 extends OnboardingFragment {
         boolean passwordConfirmGood = this.passwordConfirmView.getEditableText().toString().equals(
                 this.passwordView.getEditableText().toString());
 
-        return nameGood && emailGood && passwordGood && passwordConfirmGood;
+        if (!nameGood) {
+            return getString(R.string.onboard_error_name);
+        }
+        else if (!emailGood) {
+            return getString(R.string.onboard_error_email);
+        }
+        else if (!passwordGood) {
+            return getString(R.string.onboard_error_password);
+        }
+        else if (!passwordConfirmGood) {
+            return getString(R.string.onboard_error_match);
+        } else {
+            return null;
+        }
+
     }
 
     /**
@@ -90,25 +93,4 @@ public class Tab3 extends OnboardingFragment {
 
     }
 
-    TextWatcher textWatcher = new TextWatcher() {
-
-        @Override
-        public void onTextChanged(CharSequence s, int start, int before, int count) {
-        if (nameView.getText().toString().equals("")) {
-                rightArrow.setClickable(false);
-                rightArrow.setEnabled(false);
-                System.out.println(rightArrow.isClickable());
-            } else {
-                rightArrow.setClickable(true);
-                rightArrow.setEnabled(true);
-            }
-            System.out.println(rightArrow.isEnabled());
-        }
-
-        @Override
-        public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
-
-        @Override
-        public void afterTextChanged(Editable s) {}
-    };
 }

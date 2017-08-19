@@ -19,7 +19,6 @@ import java.util.HashMap;
 public class Tab10 extends OnboardingFragment {
 
     private MaterialEditText usernameEditText;
-    private ImageButton forwardArrowButton;
 
     @Nullable
     @Override
@@ -27,32 +26,32 @@ public class Tab10 extends OnboardingFragment {
         View cont = inflater.inflate(R.layout.tab10, container, false);
         Typeface fancyFont = FontUtil.get("Raleway-Regular.ttf", this.getContext());
         FontUtil.overrideFonts(cont, fancyFont);
+        bindViews(cont);
         return cont;
     }
 
     @Override
     public void bindViews(View cont) {
-
-        this.usernameEditText = (MaterialEditText) cont.findViewById(R.id.username_edit_text);
-        this.forwardArrowButton = (ImageButton) cont.findViewById(R.id.forward_arrow_button);
-        forwardArrowButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-            }
-        });
-
+        this.usernameEditText = cont.findViewById(R.id.username_edit_text);
     }
 
     @Override
-    public boolean inputReady() {
-        return false;
+    public String ready() {
+
+        //TODO: Check for whitespace
+
+        if (usernameEditText.getText().toString().trim().length() < 3) {
+            return getString(R.string.onboard_error_username);
+        } else {
+            return null;
+        }
+
     }
 
     @Override
     public HashMap<String, String> getData() {
         HashMap<String, String> results = new HashMap<>();
         results.put("username", usernameEditText.getText().toString());
-        return null;
+        return results;
     }
 }

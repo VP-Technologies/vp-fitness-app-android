@@ -7,10 +7,11 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
+    <!-- Strings for the onboarding story -->
     <string name="welcome_info_header">Hi! Welcome to Trainer</string>
     <string name="welcome_info_description">To give you the best possible experience, please tell us a little bit about yourself!</string>
 
-    <string name="burn_fat_description">Fatburning workouts to help lose weight and tone muscle</string>
+    <string name="burn_fat_description">Fat-burning workouts to help lose weight and tone muscle</string>
     <string name="build_muscle_description">Strength training to increase muscle mass</string>
     <string name="improve_endurance_description">Cardio workouts to help you stay active for longer</string>
 
@@ -31,4 +32,21 @@
 
     <string name="username_info_header">You\'re almost there!</string>
     <string name="username_info_description">Now all you need is a username for your character! This is the name that your friends in Fitness will identify you by, so choose wisely!</string>
+
+    <string name="onboard_error_title">Account Creation Error</string>
+    <string name="onboard_error_content">An unknown error occurred during account creation; please try again later.</string>
+    <string name="onboard_error_pos">OK</string>
+    <string name="onboard_error_auth">Your account has been created, but there was a problem logging in; please try logging in later.</string>
+    <string name="onboard_error_name">Please enter a name which is more than two letters long.</string>
+    <string name="onboard_error_email">Please enter a valid email address.</string>
+    <string name="onboard_error_password">Your password must be more than 6 characters.</string>
+    <string name="onboard_error_match">Your passwords do not match.</string>
+    <string name="onboard_error_goal">You must choose a goal! This can be changed later within your settings.</string>
+    <string name="onboard_error_diff">You must choose a difficulty! This can be changed later within your settings.</string>
+    <string name="onboard_error_username">Please enter a username with 3 or more characters.</string>
+    <string name="onboard_error_during_title">Invalid Entry</string>
+
+
+
+
 </resources>

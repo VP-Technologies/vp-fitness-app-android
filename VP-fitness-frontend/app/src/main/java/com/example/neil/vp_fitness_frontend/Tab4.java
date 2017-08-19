@@ -34,8 +34,20 @@ public class Tab4 extends OnboardingFragment {
         View cont = inflater.inflate(R.layout.tab4, container, false);
         Typeface fancyFont = FontUtil.get("Raleway-Regular.ttf", this.getContext());
         FontUtil.overrideFonts(cont, fancyFont);
-
         bindViews(cont);
+        return cont;
+    }
+
+    /**
+     * Method to trigger binding of views
+     * @param cont The container to find the views within
+     */
+    @Override
+    public void bindViews(View cont) {
+
+        this.burnFatLinearLayout = cont.findViewById(R.id.burn_fat_linear_layout);
+        this.buildMuscleLinearLayout = cont.findViewById(R.id.build_muscle_linear_layout);
+        this.improveEnduranceLinearLayout = cont.findViewById(R.id.improve_endurance_linear_layout);
 
         burnFatLinearLayout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -65,25 +77,17 @@ public class Tab4 extends OnboardingFragment {
             }
         });
 
-        return cont;
-    }
-
-    /**
-     * Method to trigger binding of views
-     * @param cont The container to find the views within
-     */
-    @Override
-    public void bindViews(View cont) {
-
-        this.burnFatLinearLayout = (LinearLayout) cont.findViewById(R.id.burn_fat_linear_layout);
-        this.buildMuscleLinearLayout = (LinearLayout) cont.findViewById(R.id.build_muscle_linear_layout);
-        this.improveEnduranceLinearLayout = (LinearLayout) cont.findViewById(R.id.improve_endurance_linear_layout);
-
     }
 
     @Override
-    public boolean inputReady() {
-        return false;
+    public String ready() {
+
+        if (goal > 0) {
+            return null;
+        } else {
+            return getString(R.string.onboard_error_goal);
+        }
+
     }
 
     /**

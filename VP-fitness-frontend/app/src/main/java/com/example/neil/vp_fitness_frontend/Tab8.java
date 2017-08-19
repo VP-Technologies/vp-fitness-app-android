@@ -26,6 +26,7 @@ public class Tab8 extends OnboardingFragment {
     private CheckBox benchPressCheckBox;
     private CheckBox stairMachineCheckBox;
     private CheckBox ellipticalCheckBox;
+    private CheckBox[] boxes;
 
     @Nullable
     @Override
@@ -33,9 +34,7 @@ public class Tab8 extends OnboardingFragment {
         View cont = inflater.inflate(R.layout.tab8, container, false);
         Typeface fancyFont = FontUtil.get("Raleway-Regular.ttf", this.getContext());
         FontUtil.overrideFonts(cont, fancyFont);
-
         bindViews(cont);
-
         return cont;
     }
 
@@ -46,30 +45,27 @@ public class Tab8 extends OnboardingFragment {
     @Override
     public void bindViews(View cont) {
 
-        this.dumbellsCheckBox = (CheckBox) cont.findViewById(R.id.dumbells_checkbox);
-        this.medicineBallCheckBox = (CheckBox) cont.findViewById(R.id.medicine_ball_checkbox);
-        this.treadmillCheckBox = (CheckBox) cont.findViewById(R.id.treadmill_checkbox);
-        this.benchPressCheckBox = (CheckBox) cont.findViewById(R.id.bench_press_checkbox);
-        this.stairMachineCheckBox = (CheckBox) cont.findViewById(R.id.stair_machine_checkbox);
-        this.ellipticalCheckBox = (CheckBox) cont.findViewById(R.id.elliptical_checkbox);
+        this.dumbellsCheckBox = cont.findViewById(R.id.dumbells_checkbox);
+        this.medicineBallCheckBox = cont.findViewById(R.id.medicine_ball_checkbox);
+        this.treadmillCheckBox = cont.findViewById(R.id.treadmill_checkbox);
+        this.benchPressCheckBox = cont.findViewById(R.id.bench_press_checkbox);
+        this.stairMachineCheckBox = cont.findViewById(R.id.stair_machine_checkbox);
+        this.ellipticalCheckBox = cont.findViewById(R.id.elliptical_checkbox);
+        this.boxes = new CheckBox[] {this.dumbellsCheckBox, this.medicineBallCheckBox, this.treadmillCheckBox,
+                this.benchPressCheckBox, this.stairMachineCheckBox, this.ellipticalCheckBox};
 
     }
 
     @Override
-    public boolean inputReady() {
-        return false;
+    public String ready() {
+        return null;
     }
 
     @Override
     public HashMap<String, String> getData() {
         HashMap<String, String> results = new HashMap<>();
-
         String result = "{";
-
-        CheckBox[] boxes = new CheckBox[] {this.dumbellsCheckBox, this.medicineBallCheckBox, this.treadmillCheckBox,
-                this.benchPressCheckBox, this.stairMachineCheckBox, this.ellipticalCheckBox};
-
-        for (int i = 0; i <= boxes.length; i++) {
+        for (int i = 0; i < boxes.length; i++) {
             CheckBox box = boxes[i];
             result += box.isChecked() ? i + "," : "";
         }

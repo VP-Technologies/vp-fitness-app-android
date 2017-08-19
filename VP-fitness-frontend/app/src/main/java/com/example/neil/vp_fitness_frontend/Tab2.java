@@ -10,7 +10,9 @@ import android.view.ViewGroup;
 
 import com.avontell.fontutil.FontUtil;
 
-public class Tab2 extends Fragment {
+import java.util.HashMap;
+
+public class Tab2 extends OnboardingFragment {
 
     @Nullable
     @Override
@@ -20,4 +22,30 @@ public class Tab2 extends Fragment {
         FontUtil.overrideFonts(cont, fancyFont);
         return cont;
     }
+
+    /**
+     * Method to trigger the binding of views
+     * @param cont The container to find the views within
+     */
+    @Override
+    public void bindViews(View cont) {}
+
+    /**
+     * Returns a string to display an error if the information has not been
+     * filled out correctly. Otherwise, returns null.
+     */
+    @Override
+    public String ready() {
+        return null;
+    }
+
+    /**
+     * Returns the data which can be uploaded during the onboarding process
+     * @return the data which can be uploaded during the onboarding process
+     */
+    @Override
+    public HashMap<String, String> getData() {
+        return new HashMap<>();
+    }
+
 }
