@@ -7,7 +7,7 @@ import android.os.AsyncTask;
 import android.support.annotation.NonNull;
 import com.afollestad.materialdialogs.DialogAction;
 import com.afollestad.materialdialogs.MaterialDialog;
-import com.vptech.fitness.app.LoginActivity;
+import com.vptech.fitness.app.login.LoginActivity;
 import com.vptech.fitness.app.MainActivity;
 import com.vptech.fitness.app.R;
 import com.vptech.fitness.app.utils.API;

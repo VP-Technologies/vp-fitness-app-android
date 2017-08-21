@@ -1,7 +1,5 @@
-package com.vptech.fitness.app;
+package com.vptech.fitness.app.onboarding;
 
-import android.app.Activity;
-import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -9,23 +7,25 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import com.avontell.fontutil.FontUtil;
+import com.vptech.fitness.app.R;
+import com.vptech.fitness.app.onboarding.OnboardingFragment;
+
 import java.util.HashMap;
 
 /**
- * An introduction tab to the fitness application
+ * A slide telling the user that they are almost done...
  * @author Tej Patel
  * @author Neil Patel
  * @author Aaron Vontell
  */
-public class Tab2 extends OnboardingFragment {
+public class Tab9 extends OnboardingFragment {
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
-        View cont = inflater.inflate(R.layout.tab2, container, false);
+        View cont = inflater.inflate(R.layout.tab9, container, false);
         Typeface fancyFont = FontUtil.get("Raleway-Regular.ttf", this.getContext());
         FontUtil.overrideFonts(cont, fancyFont);
-        bindViews(cont);
         return cont;
     }
 
@@ -34,19 +34,7 @@ public class Tab2 extends OnboardingFragment {
      * @param cont The container to find the views within
      */
     @Override
-    public void bindViews(View cont) {
-
-        final Activity context = getActivity();
-        cont.findViewById(R.id.onboard_login_view).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent loginActivityIntent = new Intent(context, LoginActivity.class);
-                context.finish();
-                startActivity(loginActivityIntent);
-            }
-        });
-
-    }
+    public void bindViews(View cont) {}
 
     /**
      * Returns a string to display an error if the information has not been
@@ -65,5 +53,4 @@ public class Tab2 extends OnboardingFragment {
     public HashMap<String, String> getData() {
         return new HashMap<>();
     }
-
 }

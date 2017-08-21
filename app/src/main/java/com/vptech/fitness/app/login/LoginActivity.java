@@ -1,4 +1,4 @@
-package com.vptech.fitness.app;
+package com.vptech.fitness.app.login;
 
 import android.app.Activity;
 import android.content.Context;
@@ -9,7 +9,9 @@ import android.view.View;
 import android.widget.LinearLayout;
 
 import com.rengwuxian.materialedittext.MaterialEditText;
-import com.vptech.fitness.app.onboarding.LoginAsyncTask;
+import com.vptech.fitness.app.R;
+import com.vptech.fitness.app.login.LoginAsyncTask;
+import com.vptech.fitness.app.onboarding.OnboardingActivity;
 import com.vptech.fitness.app.utils.ViewHelper;
 
 /**

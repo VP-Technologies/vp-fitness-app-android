@@ -1,4 +1,4 @@
-package com.vptech.fitness.app;
+package com.vptech.fitness.app.onboarding;
 
 import android.graphics.Typeface;
 import android.os.Bundle;
@@ -7,6 +7,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import com.avontell.fontutil.FontUtil;
+import com.vptech.fitness.app.R;
+import com.vptech.fitness.app.onboarding.OnboardingFragment;
+
 import java.util.HashMap;
 
 /**

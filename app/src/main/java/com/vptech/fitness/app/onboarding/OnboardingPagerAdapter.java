@@ -3,17 +3,7 @@ package com.vptech.fitness.app.onboarding;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
-import com.vptech.fitness.app.OnboardingFragment;
-import com.vptech.fitness.app.Tab1;
-import com.vptech.fitness.app.Tab10;
-import com.vptech.fitness.app.Tab2;
-import com.vptech.fitness.app.Tab3;
-import com.vptech.fitness.app.Tab4;
-import com.vptech.fitness.app.Tab5;
-import com.vptech.fitness.app.Tab6;
-import com.vptech.fitness.app.Tab7;
-import com.vptech.fitness.app.Tab8;
-import com.vptech.fitness.app.Tab9;
+
 import java.util.HashMap;
 
 /**

@@ -5,6 +5,8 @@ import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
+import com.vptech.fitness.app.login.LoginActivity;
+import com.vptech.fitness.app.onboarding.OnboardingActivity;
 import com.vptech.fitness.app.utils.Constants;
 
 /**

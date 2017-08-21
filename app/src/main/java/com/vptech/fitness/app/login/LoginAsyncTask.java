@@ -1,17 +1,13 @@
-package com.vptech.fitness.app.onboarding;
+package com.vptech.fitness.app.login;
 
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
-import android.support.annotation.NonNull;
-
-import com.afollestad.materialdialogs.DialogAction;
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.vptech.fitness.app.MainActivity;
 import com.vptech.fitness.app.R;
 import com.vptech.fitness.app.utils.API;
-import com.vptech.fitness.app.utils.Authentication;
 import com.vptech.fitness.app.utils.ViewHelper;
 
 import org.json.JSONObject;

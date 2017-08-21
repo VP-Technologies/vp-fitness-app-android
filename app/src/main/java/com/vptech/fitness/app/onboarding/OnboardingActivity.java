@@ -1,12 +1,11 @@
-package com.vptech.fitness.app;
+package com.vptech.fitness.app.onboarding;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.LinearLayout;
 import com.avontell.pagerindicatorbinder.IndicatorBinder;
-import com.vptech.fitness.app.onboarding.AccountCreationAsyncTask;
-import com.vptech.fitness.app.onboarding.OnboardingPagerAdapter;
+import com.vptech.fitness.app.R;
 import com.vptech.fitness.app.utils.ViewHelper;
 import com.vptech.fitness.app.views.NonSwipeableViewPager;
 import org.json.JSONObject;

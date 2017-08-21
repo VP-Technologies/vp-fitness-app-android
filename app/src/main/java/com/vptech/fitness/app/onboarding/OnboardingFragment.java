@@ -1,4 +1,4 @@
-package com.vptech.fitness.app;
+package com.vptech.fitness.app.onboarding;
 
 import android.support.v4.app.Fragment;
 import android.view.View;
