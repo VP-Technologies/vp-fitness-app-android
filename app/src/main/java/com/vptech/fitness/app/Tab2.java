@@ -1,5 +1,7 @@
 package com.vptech.fitness.app;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -23,6 +25,7 @@ public class Tab2 extends OnboardingFragment {
         View cont = inflater.inflate(R.layout.tab2, container, false);
         Typeface fancyFont = FontUtil.get("Raleway-Regular.ttf", this.getContext());
         FontUtil.overrideFonts(cont, fancyFont);
+        bindViews(cont);
         return cont;
     }
 
@@ -31,7 +34,19 @@ public class Tab2 extends OnboardingFragment {
      * @param cont The container to find the views within
      */
     @Override
-    public void bindViews(View cont) {}
+    public void bindViews(View cont) {
+
+        final Activity context = getActivity();
+        cont.findViewById(R.id.onboard_login_view).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent loginActivityIntent = new Intent(context, LoginActivity.class);
+                context.finish();
+                startActivity(loginActivityIntent);
+            }
+        });
+
+    }
 
     /**
      * Returns a string to display an error if the information has not been

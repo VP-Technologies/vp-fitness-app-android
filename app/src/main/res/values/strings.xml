@@ -46,5 +46,15 @@
     <string name="onboard_error_username">Please enter a username with 3 or more characters.</string>
     <string name="onboard_error_during_title">Invalid Entry</string>
 
+    <string name="login_header">Login to Trainer</string>
+    <string name="login_button">Login</string>
+    <string name="login_no_account">I don\'t have an account</string>
+    <string name="login_username_hint">Username</string>
+    <string name="login_password_hint">Password</string>
+    <string name="login_error">Username or password is incorrect; please try again.</string>
+    <string name="login_error_title">Login Failed</string>
+
+    <string name="onboard_already_exist">I already have an account</string>
+
 
 </resources>

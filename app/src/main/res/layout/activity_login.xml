@@ -1,9 +1,119 @@
-<?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:fitsSystemWindows="true"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.vptech.fitness.app.LoginActivity">
+    android:background="@drawable/gradient">
 
-</android.support.constraint.ConstraintLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:weightSum="1">
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginTop="80dp"
+            android:src="@drawable/vp_logo" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="48dp"
+            android:text="@string/login_header"
+            android:textColor="@android:color/white"
+            android:textSize="20sp"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"/>
+
+        <com.rengwuxian.materialedittext.MaterialEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="32dp"
+            android:layout_marginRight="32dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/edit_text_background"
+            android:fontFamily="sans-serif"
+            android:hint="@string/login_username_hint"
+            android:maxLines="1"
+            android:paddingLeft="12dp"
+            android:textSize="20sp"
+            app:met_textColorHint="@android:color/white"
+            app:met_floatingLabelTextColor="@android:color/white"
+            app:met_baseColor="@android:color/white"
+            app:met_errorColor="@android:color/white"
+            app:met_floatingLabel="normal"
+            app:met_floatingLabelText="@string/login_username_hint"
+            app:met_primaryColor="@android:color/white"
+            android:id="@+id/login_username_view"/>
+
+        <com.rengwuxian.materialedittext.MaterialEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="32dp"
+            android:layout_marginRight="32dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/edit_text_background"
+            android:fontFamily="sans-serif"
+            android:hint="@string/login_password_hint"
+            android:maxLines="1"
+            android:inputType="textPassword"
+            android:paddingLeft="12dp"
+            android:textSize="20sp"
+            app:met_textColorHint="@android:color/white"
+            app:met_floatingLabelTextColor="@android:color/white"
+            app:met_baseColor="@android:color/white"
+            app:met_errorColor="@android:color/white"
+            app:met_floatingLabel="normal"
+            app:met_floatingLabelText="@string/login_password_hint"
+            app:met_primaryColor="@android:color/white"
+            android:id="@+id/login_password_view"/>
+
+        <LinearLayout
+            android:layout_width="200dp"
+            android:id="@+id/login_button_view"
+            android:gravity="center"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/onboarding_option"
+            android:paddingTop="12dp"
+            android:paddingBottom="12dp"
+            android:layout_marginTop="32dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/login_button"
+                android:textColor="@android:color/white"
+                android:textSize="16sp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="200dp"
+            android:id="@+id/login_no_account_view"
+            android:gravity="center"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/onboarding_option"
+            android:paddingTop="12dp"
+            android:paddingBottom="12dp"
+            android:layout_marginBottom="32dp"
+            android:layout_marginTop="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/login_no_account"
+                android:textColor="@android:color/white"
+                android:textSize="16sp"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</ScrollView>
