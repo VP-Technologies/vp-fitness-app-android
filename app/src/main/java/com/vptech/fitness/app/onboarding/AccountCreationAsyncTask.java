@@ -7,6 +7,7 @@ import com.afollestad.materialdialogs.DialogAction;
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.vptech.fitness.app.R;
 import com.vptech.fitness.app.utils.API;
+import com.vptech.fitness.app.utils.Authentication;
 import com.vptech.fitness.app.utils.ViewHelper;
 import org.json.JSONObject;
 
@@ -45,6 +46,7 @@ public class AccountCreationAsyncTask extends AsyncTask<JSONObject, Void, Materi
 
             // Then create the account
             JSONObject accountResult = API.postAccountCreation(context, objs[0]);
+            Authentication.saveOnboardingFinished(context);
 
             // If there is an error from account creation, we should tell them
             if (accountResult.get("status").equals("failure")) {

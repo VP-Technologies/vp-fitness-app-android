@@ -8,6 +8,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.TextView;
+
 import com.avontell.fontutil.FontUtil;
 import java.util.HashMap;
 
@@ -48,7 +50,7 @@ public class Tab8 extends OnboardingFragment {
                 benchPressCheckBox, stairMachineCheckBox, ellipticalCheckBox};
 
         // Set the listener for the "check all" button
-        Button checkAll = cont.findViewById(R.id.select_all_equipment);
+        TextView checkAll = cont.findViewById(R.id.select_all_equipment);
         checkAll.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

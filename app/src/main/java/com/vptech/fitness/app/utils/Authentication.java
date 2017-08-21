@@ -12,7 +12,6 @@ public class Authentication {
     public static final String PRIVATE_KEY_HEADER =
             "Basic dnBmaXR3ZWJhcHA6SkJVWTlWRTY5MjQzQllDOTAyNDM4N0hHVlkzQVFGSw==";
     public static final String GRANT_TYPE = "password";
-    public static final String ACCESS_TOKEN_KEY = "VP_ACCESS_TOKEN";
 
     /**
      * Returns an access token that has been previously saved
@@ -22,7 +21,7 @@ public class Authentication {
     public static String getAccessToken(Context context) {
         SharedPreferences sharedPref = context.getSharedPreferences(
                 Constants.SHARED_PREFS_KEY, Context.MODE_PRIVATE);
-        return sharedPref.getString(ACCESS_TOKEN_KEY, "");
+        return sharedPref.getString(Constants.ACCESS_TOKEN_KEY, "");
     }
 
     /**
@@ -34,7 +33,19 @@ public class Authentication {
         SharedPreferences sharedPref = context.getSharedPreferences(
                 Constants.SHARED_PREFS_KEY, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPref.edit();
-        editor.putString(ACCESS_TOKEN_KEY, accessToken);
+        editor.putString(Constants.ACCESS_TOKEN_KEY, accessToken);
+        editor.commit();
+    }
+
+    /**
+     * Saves the fact that onboarding has occurred
+     * @param context the context asking to save this information
+     */
+    public static void saveOnboardingFinished(Context context) {
+        SharedPreferences sharedPref = context.getSharedPreferences(
+                Constants.SHARED_PREFS_KEY, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPref.edit();
+        editor.putBoolean(Constants.ONBOARDING_FINISHED, true);
         editor.commit();
     }
 
