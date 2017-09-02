@@ -39,7 +39,7 @@
                 app:met_errorColor="@android:color/white"
                 app:met_floatingLabel="normal"
                 app:met_floatingLabelText="Full name"
-                app:met_primaryColor="@android:color/white"
+                app:met_primaryColor="@color/opaqueWhite"
                 android:id="@+id/full_name_edit_text"/>
 
             <com.rengwuxian.materialedittext.MaterialEditText
@@ -58,7 +58,7 @@
                 app:met_errorColor="@android:color/white"
                 app:met_floatingLabel="normal"
                 app:met_floatingLabelText="Email"
-                app:met_primaryColor="@android:color/white"
+                app:met_primaryColor="@color/opaqueWhite"
                 android:id="@+id/email_edit_text"/>
 
             <com.rengwuxian.materialedittext.MaterialEditText
@@ -77,7 +77,7 @@
                 app:met_errorColor="@android:color/white"
                 app:met_floatingLabel="normal"
                 app:met_floatingLabelText="Password"
-                app:met_primaryColor="@android:color/white"
+                app:met_primaryColor="@color/opaqueWhite"
                 android:inputType="textPassword"
                 android:id="@+id/password_edit_text"/>
 
@@ -97,7 +97,7 @@
                 app:met_errorColor="@android:color/white"
                 app:met_floatingLabel="normal"
                 app:met_floatingLabelText="Confirm Password"
-                app:met_primaryColor="@android:color/white"
+                app:met_primaryColor="@color/opaqueWhite"
                 android:inputType="textPassword"
                 android:id="@+id/password_confirm_edit_text"/>
         </LinearLayout>
