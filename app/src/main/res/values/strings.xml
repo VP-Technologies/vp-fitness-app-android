@@ -55,6 +55,7 @@
     <string name="login_error_title">Login Failed</string>
 
     <string name="onboard_already_exist">I already have an account</string>
+    <string name="title_activity_fitness">FitnessActivity</string>
 
 
 </resources>
