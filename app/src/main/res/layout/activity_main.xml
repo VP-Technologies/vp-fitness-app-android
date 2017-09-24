@@ -47,6 +47,7 @@
             android:textSize="18sp"
             android:paddingTop="12dp"/>
 
+
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -88,14 +89,27 @@
                 android:textSize="24sp"
                 android:layout_marginLeft="6dp"/>
 
+
+            <ProgressBar
+                android:id="@+id/progress_bar1"
+                android:layout_width="12dip"
+                android:layout_height="75dip"
+                style="@style/Widget.ProgressBar.Vertical"
+                />
+
+
+
         </LinearLayout>
+
+
 
     </RelativeLayout>
 
     <ImageView
+        android:id="@+id/imageView5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/placeholder"
-        android:layout_marginTop="-50dp"/>
+        android:layout_marginTop="-50dp"
+        android:src="@drawable/placeholder" />
 
 </LinearLayout>
